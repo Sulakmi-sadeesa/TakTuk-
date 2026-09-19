@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Request a Ride — Taktuk</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="nav">
+<div class="nav-inner">
+<a class="logo" href="index.html"><span class="logo-mark"><svg viewBox="0 0 24 24" width="23" height="23" fill="none"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" fill="#FACC15"/><circle cx="12" cy="10" r="3" fill="#0B1220"/></svg></span><span class="logo-text">taktuk</span></a>
+<nav class="nav-links"><a href="ride.html" class="active">Ride</a><a href="drive.html" class="">Driver</a><a href="eats.html" class="">Eats</a><a href="index.html#help">Help</a></nav>
+<div class="nav-actions"><a href="#" class="nav-login" onclick="openModal('login');return false;">Log in</a><button class="btn btn-yellow" onclick="openModal('signup')">Sign up</button></div>
+<button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+</div>
+<div class="mobile-menu" id="mobile-menu"><a href="ride.html">Ride</a><a href="drive.html">Driver</a><a href="eats.html">Eats</a><a href="index.html#help">Help</a><button class="btn btn-yellow" onclick="openModal('signup')">Sign up</button></div>
+</header>
+<section class="page-hero ride-hero"><div class="page-hero-image"></div><div class="page-hero-overlay"></div><div class="section-inner page-hero-inner"><span class="section-kicker light">TAKTUK RIDE</span><h1>Request a ride</h1><p>Upfront pricing, cashless payment, 24/7 availability.</p></div></section>
+<section class="ride-page"><div class="section-inner ride-grid">
+<div class="ride-form-card"><span class="section-kicker">BOOK A RIDE</span><h2>Where to?</h2><form id="ride-form" onsubmit="event.preventDefault(); submitRide();">
+<div class="search-row"><span class="dot"></span><input type="text" placeholder="Enter pickup location" id="ride-pickup" required></div>
+<div class="search-row"><span class="square"></span><input type="text" placeholder="Enter dropoff location" id="ride-dropoff" required></div>
+<div class="ride-options">
+<label class="ride-option selected" data-type="go"><span class="option-icon">🚗</span><div><strong>Taktuk Go</strong><span>Affordable, compact rides</span></div><span class="option-price">LKR 150 base</span></label>
+<label class="ride-option" data-type="premier"><span class="option-icon">🚙</span><div><strong>Taktuk Premier</strong><span>Newer cars, top-rated drivers</span></div><span class="option-price">LKR 250 base</span></label>
+<label class="ride-option" data-type="tuk"><span class="option-icon">🛺</span><div><strong>Taktuk Tuk</strong><span>Local three-wheeler</span></div><span class="option-price">LKR 100 base</span></label>
+<label class="ride-option" data-type="moto"><span class="option-icon">🏍️</span><div><strong>Taktuk Moto</strong><span>Fast two-wheeler rides</span></div><span class="option-price">LKR 80 base</span></label>
+</div><button type="submit" class="btn btn-yellow btn-full">Confirm and request →</button></form></div>
+<div class="ride-map-card"><div class="map-placeholder"><div class="map-decor map-road r1"></div><div class="map-decor map-road r2"></div><div class="map-decor map-road r3"></div><div class="map-pin pickup-pin">A</div><div class="map-pin dropoff-pin">B</div><div class="map-route"></div><div class="map-car">🚗</div><div class="map-label label-a">Pickup</div><div class="map-label label-b">Dropoff</div><p class="map-note">Map preview — connect Mapbox or Leaflet for live maps</p></div></div>
+</div></section>
+<section class="fare-info"><div class="section-inner"><div class="section-heading"><div><span class="section-kicker">ESTIMATES</span><h2>Popular routes in Colombo</h2></div></div><div class="fare-grid">
+<div class="fare-card"><span class="fare-route">Airport → Colombo Fort</span><strong class="fare-price">LKR 3,200</strong><span class="fare-time">~45 min</span></div>
+<div class="fare-card"><span class="fare-route">Colombo 3 → Mount Lavinia</span><strong class="fare-price">LKR 850</strong><span class="fare-time">~25 min</span></div>
+<div class="fare-card"><span class="fare-route">Kandy → Colombo</span><strong class="fare-price">LKR 12,500</strong><span class="fare-time">~3 hr 15 min</span></div>
+<div class="fare-card"><span class="fare-route">Galle → Mirissa</span><strong class="fare-price">LKR 1,800</strong><span class="fare-time">~40 min</span></div>
+</div></div></section>
+<footer class="footer"><div class="section-inner footer-grid">
+<div><a class="logo" href="index.html"><span class="logo-mark">●</span><span class="logo-text">taktuk</span></a><p class="footer-tag">Go anywhere. Get anything.</p></div>
+<div><h5>Products</h5><a href="ride.html">Ride</a><a href="eats.html">Eats</a><a href="drive.html">Drive</a></div>
+<div><h5>Support</h5><a href="#">Help Center</a><a href="#">Safety</a><a href="#">Contact</a></div>
+</div><div class="section-inner footer-bottom"><span>© 2025 Taktuk.</span><span>🌐 English · Sri Lanka</span></div></footer><div class="modal" id="modal"><div class="modal-content"><button class="modal-close" onclick="closeModal()">×</button><h2 id="modal-title">Sign up</h2><p id="modal-sub">Create your Taktuk account</p><form onsubmit="event.preventDefault(); closeModal(); alert('Account created! (Demo)');"><input type="email" placeholder="Email address" required><input type="tel" placeholder="Phone number" required><input type="password" placeholder="Password" required><button type="submit" class="btn btn-dark btn-full">Continue</button></form></div></div><div class="toast" id="toast"></div><script src="script.js"></script></body></html>

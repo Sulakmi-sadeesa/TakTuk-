@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drive with Taktuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" width="23" height="23" fill="none"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" fill="#FACC15"/><circle cx="12" cy="10" r="3" fill="#0B1220"/></svg></span>
+      <span class="logo-text">taktuk</span>
+    </a>
+    <nav class="nav-links">
+      <a href="ride.html">Ride</a>
+      <a href="drive.html" class="active">Driver</a>
+      <a href="eats.html">Eats</a>
+      <a href="index.html#help">Help</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-login" onclick="openModal('login');return false;">Log in</a>
+      <button class="btn btn-yellow" onclick="openModal('signup')">Sign up</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="ride.html">Ride</a>
+    <a href="drive.html">Driver</a>
+    <a href="eats.html">Eats</a>
+    <a href="index.html#help">Help</a>
+    <button class="btn btn-yellow" onclick="openModal('signup')">Sign up</button>
+  </div>
+</header>
+
+<section class="drive-hero">
+  <div class="drive-hero-image"></div>
+  <div class="drive-hero-overlay"></div>
+  <div class="section-inner drive-hero-inner">
+    <div class="drive-copy">
+      <span class="section-kicker light">BECOME A DRIVER</span>
+      <h1>Drive with <span>Taktuk</span></h1>
+      <p>Earn money on your schedule. Drive when you want, where you want.</p>
+      <button class="btn btn-yellow btn-lg" onclick="document.getElementById('drive-form').scrollIntoView({behavior:'smooth'})">Sign up to drive →</button>
+    </div>
+    <div class="drive-stats">
+      <div><strong>LKR 120</strong><span>Average per km</span></div>
+      <div><strong>Flexible</strong><span>Set your own hours</span></div>
+      <div><strong>Weekly</strong><span>Payouts</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="drive-form-section">
+  <div class="section-inner drive-form-wrap">
+    <div class="section-heading">
+      <div>
+        <span class="section-kicker">GET STARTED</span>
+        <h2>Sign up in minutes</h2>
+        <p class="section-sub">All you need is a valid driver's licence, vehicle registration, and insurance.</p>
+      </div>
+      <div class="form-image">
+        <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=800&q=85" alt="Driver on the road">
+      </div>
+    </div>
+
+    <form class="drive-form" id="drive-form" onsubmit="event.preventDefault(); submitDrive();">
+      <div class="form-grid">
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label>Phone number</label>
+          <input type="tel" required placeholder="07X XXX XXXX">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label>City</label>
+          <input type="text" required placeholder="Colombo">
+        </div>
+        <div class="field">
+          <label>Vehicle type</label>
+          <select required>
+            <option value="">Select vehicle type</option>
+            <option>Car (Mini)</option>
+            <option>Car (Sedan)</option>
+            <option>Three-wheeler (Tuk)</option>
+            <option>Motorcycle</option>
+            <option>Van</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Vehicle registration</label>
+          <input type="text" required placeholder="ABC-1234">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark btn-full">Submit application</button>
+    </form>
+  </div>
+</section>
+
+<section class="driver-benefits">
+  <div class="section-inner">
+    <div class="section-heading">
+      <div><span class="section-kicker">YOUR BENEFITS</span><h2>Why drive with Taktuk</h2></div>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit benefit-orange"><span>💰</span><h4>Competitive earnings</h4><p>Keep more of every fare with low commissions.</p></div>
+      <div class="benefit benefit-blue"><span>🕒</span><h4>Flexible hours</h4><p>Drive full-time or part-time — you decide.</p></div>
+      <div class="benefit benefit-green"><span>🛡️</span><h4>Insurance coverage</h4><p>Accident insurance during active trips.</p></div>
+      <div class="benefit benefit-purple"><span>📱</span><h4>Driver app</h4><p>Turn-by-turn navigation and in-app earnings tracking.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="section-inner footer-grid">
+    <div>
+      <a class="logo" href="index.html">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" width="23" height="23" fill="none"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" fill="#FACC15"/><circle cx="12" cy="10" r="3" fill="#0B1220"/></svg></span>
+        <span class="logo-text">taktuk</span>
+      </a>
+      <p class="footer-tag">Go anywhere. Get anything.</p>
+    </div>
+    <div><h5>Products</h5><a href="ride.html">Ride</a><a href="eats.html">Eats</a><a href="drive.html">Drive</a></div>
+    <div><h5>Support</h5><a href="#">Help Center</a><a href="#">Safety</a><a href="#">Contact</a></div>
+  </div>
+  <div class="section-inner footer-bottom">
+    <span>© 2025 Taktuk.</span>
+    <span>🌐 English · Sri Lanka</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal"><div class="modal-content">
+  <button class="modal-close" onclick="closeModal()">×</button>
+  <h2 id="modal-title">Sign up</h2>
+  <p id="modal-sub">Create your Taktuk account</p>
+  <form onsubmit="event.preventDefault(); closeModal(); showToast('Account created! (Demo)', 'success');">
+    <input type="email" placeholder="Email address" required>
+    <input type="tel" placeholder="Phone number" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit" class="btn btn-dark btn-full">Continue</button>
+  </form>
+</div></div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

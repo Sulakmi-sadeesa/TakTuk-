@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taktuk — Go anywhere with Taktuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" width="23" height="23" fill="none"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" fill="#FACC15"/><circle cx="12" cy="10" r="3" fill="#0B1220"/></svg></span>
+      <span class="logo-text">taktuk</span>
+    </a>
+    <nav class="nav-links">
+      <a href="ride.html" class="active">Ride</a>
+      <a href="drive.html">Driver</a>
+      <a href="eats.html">Eats</a>
+      <a href="#help">Help</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-login" onclick="openModal('login');return false;">Log in</a>
+      <button class="btn btn-yellow" onclick="openModal('signup')">Sign up</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="ride.html">Ride</a>
+    <a href="drive.html">Driver</a>
+    <a href="eats.html">Eats</a>
+    <a href="#help">Help</a>
+    <button class="btn btn-yellow" onclick="openModal('signup')">Sign up</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-card">
+      <div class="eyebrow"><span></span> MOVE YOUR WAY</div>
+      <h1>Go anywhere with <span class="accent">Taktuk</span></h1>
+      <p class="hero-sub">Request a ride, hop in, and go.</p>
+      <form class="search-form" onsubmit="event.preventDefault(); requestRide();">
+        <div class="search-row">
+          <span class="row-icon"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 2 5 5 5 9c0 4 7 13 7 13s7-9 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+          <input type="text" placeholder="Enter pickup location" id="pickup" required />
+        </div>
+        <div class="search-row">
+          <span class="row-icon"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></span>
+          <input type="text" placeholder="Enter dropoff location" id="dropoff" required />
+        </div>
+        <div class="search-actions">
+          <button type="button" class="btn-text" onclick="showPrices()">See prices</button>
+          <button type="submit" class="btn btn-yellow">Request now <span>→</span></button>
+        </div>
+      </form>
+      <div class="hero-links">
+        <a href="eats.html"><span class="link-icon yellow">🍜</span>Order food</a>
+        <a href="ride.html"><span class="link-icon blue">🚗</span>Reserve a ride</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="hero-car-wrap">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1400&q=85" alt="Taktuk ride car" class="hero-car">
+        <div class="hero-car-badge"><span class="mini-pin">●</span> Taktuk ride</div>
+      </div>
+      <div class="floating-card floating-rating"><span>★</span><div><strong>4.9</strong><small>Rider rating</small></div></div>
+      <div class="floating-card floating-time"><span>⚡</span><div><strong>3 min</strong><small>Driver away</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="section-inner">
+    <div class="section-heading">
+      <div><span class="section-kicker">ONE APP</span><h2>Every kind of trip, all in one app</h2></div>
+    </div>
+    <div class="service-grid">
+      <article class="service service-blue">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=85" alt="Ride car"></div>
+        <div class="service-icon">🚗</div><h3>Ride</h3>
+        <p>Request a ride in seconds. Upfront pricing, cashless payments, 24/7.</p>
+        <a href="ride.html" class="service-link">Learn more <span>→</span></a>
+      </article>
+      <article class="service service-orange">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85" alt="Food delivery"></div>
+        <div class="service-icon">🍜</div><h3>Eats</h3>
+        <p>Order food from your favorite local restaurants, delivered fast.</p>
+        <a href="eats.html" class="service-link">Learn more <span>→</span></a>
+      </article>
+      <article class="service service-green">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e?auto=format&fit=crop&w=800&q=85" alt="City bicycle"></div>
+        <div class="service-icon">🚲</div><h3>Bike</h3>
+        <p>Quick, affordable rides on two wheels for short trips around town.</p>
+        <a href="ride.html" class="service-link">Learn more <span>→</span></a>
+      </article>
+      <article class="service service-purple">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85" alt="Business team"></div>
+        <div class="service-icon">💼</div><h3>Business</h3>
+        <p>Manage rides for your team with centralized billing and trip tracking.</p>
+        <a href="drive.html" class="service-link">Learn more <span>→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="section-inner how-inner">
+    <div class="how-text">
+      <span class="section-kicker">SIMPLE AS 1–2–3</span>
+      <h2>How Taktuk works</h2>
+      <ol class="steps-list">
+        <li><span class="step-num step-blue">1</span><div><h4>Request</h4><p>Enter your destination and tap to book.</p></div></li>
+        <li><span class="step-num step-purple">2</span><div><h4>Match</h4><p>We connect you with a nearby driver in seconds.</p></div></li>
+        <li><span class="step-num step-green">3</span><div><h4>Go</h4><p>Track your ride in real time and pay automatically.</p></div></li>
+      </ol>
+    </div>
+    <div class="how-visual">
+      <div class="blob blob-1"></div><div class="blob blob-2"></div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="map-bg">
+            <svg viewBox="0 0 300 500" preserveAspectRatio="none" class="map-svg">
+              <rect width="300" height="500" fill="#EAF3FF"/>
+              <path d="M0 100 L300 80M40 0 L80 500M0 320 L300 340M200 0 L180 500" stroke="#D2E3F5" stroke-width="13" fill="none"/>
+              <path d="M0 220 Q80 170 150 240 T300 200" stroke="#BFE0C7" stroke-width="34" fill="none" opacity=".65"/>
+              <path d="M30 150 L270 390" stroke="#fff" stroke-width="7" opacity=".7"/>
+            </svg>
+            <div class="route-line"><svg viewBox="0 0 200 260" class="route-svg"><path d="M30 30 Q60 100 100 130 T170 230" stroke="#2563EB" stroke-width="5" stroke-dasharray="8 6" fill="none"/></svg>
+              <div class="pin pin-start"><span>●</span></div><div class="pin pin-end">●</div>
+              <div class="car-marker">🚗</div>
+            </div>
+          </div>
+          <div class="driver-sheet">
+            <img class="driver-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Driver">
+            <div><p class="driver-title">Your driver is on the way</p><p class="driver-sub">Arriving in 3 min</p></div>
+            <span class="driver-eta">3 min</span>
+          </div>
+        </div>
+      </div>
+      <span class="spark spark-1"></span><span class="spark spark-2"></span><span class="spark spark-3"></span>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="section-inner stats-grid">
+    <div class="stat"><span class="stat-icon stat-yellow">👥</span><div><strong>10M+</strong><span>Rides completed</span></div></div>
+    <div class="stat"><span class="stat-icon stat-purple">🌎</span><div><strong>150+</strong><span>Cities worldwide</span></div></div>
+    <div class="stat"><span class="stat-icon stat-green">★</span><div><strong>4.9★</strong><span>Average rating</span></div></div>
+    <div class="stat"><span class="stat-icon stat-blue">🎧</span><div><strong>24/7</strong><span>Support</span></div></div>
+  </div>
+</section>
+
+<section class="cta-app">
+  <div class="cta-bg"></div><div class="cta-overlay"></div>
+  <div class="section-inner cta-inner">
+    <div class="cta-text"><span class="section-kicker light">TAP. BOOK. GO.</span><h2>Get the <span class="accent">Taktuk</span> app</h2><p>Available on iOS and Android. Book rides, track drivers, pay instantly.</p>
+      <div class="store-buttons"><a href="#" class="store-btn"> <strong>App Store</strong></a><a href="#" class="store-btn">▶ <strong>Google Play</strong></a></div>
+    </div>
+    <div class="download-art"><div class="qr-icon">▦</div><p>Scan to download</p></div>
+  </div>
+</section>
+
+<footer class="footer" id="help">
+  <div class="section-inner footer-grid">
+    <div><a class="logo" href="index.html"><span class="logo-mark">●</span><span class="logo-text">taktuk</span></a><p class="footer-tag">Go anywhere. Get anything.</p></div>
+    <div><h5>Products</h5><a href="ride.html">Ride</a><a href="eats.html">Eats</a><a href="drive.html">Drive</a></div>
+    <div><h5>Support</h5><a href="#">Help Center</a><a href="#">Safety</a><a href="#">Contact</a></div>
+  </div>
+  <div class="section-inner footer-bottom"><span>© 2025 Taktuk.</span><span>🌐 English · Sri Lanka</span></div>
+</footer>
+
+<div class="modal" id="modal"><div class="modal-content">
+  <button class="modal-close" onclick="closeModal()">×</button><h2 id="modal-title">Sign up</h2><p id="modal-sub">Create your Taktuk account</p>
+  <form onsubmit="event.preventDefault(); closeModal(); alert('Account created! (Demo)');"><input type="email" placeholder="Email address" required><input type="tel" placeholder="Phone number" required><input type="password" placeholder="Password" required><button type="submit" class="btn btn-dark btn-full">Continue</button></form>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
