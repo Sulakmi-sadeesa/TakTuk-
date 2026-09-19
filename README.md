@@ -50,6 +50,3 @@ Taktuk is a Sri Lankan ride-hailing and food delivery web app concept. Ride, Eat
 - Accessible focus states and reduced-motion support
 - Fully responsive from 320px up to large desktop
 
----
-
-## 📁 Folder Structure
